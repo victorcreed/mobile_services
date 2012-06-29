@@ -28,6 +28,8 @@ gem 'kaminari'
 gem "meta_search"
 gem 'carrierwave'
 gem "mini_magick"
+
+gem 'whenever'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
