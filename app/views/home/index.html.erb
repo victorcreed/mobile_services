@@ -1,0 +1,18 @@
+<div class="row">
+
+  <% @listing.each do |list| %>
+      <div class="span4">
+        <%= link_to list.image.url, rel: 'lightbox' do %>
+            <%= image_tag list.image.medium.url %>
+        <% end %>
+        <br/>
+        <% if list.banned %>
+            <%= link_to 'Remove', home_path(list, home: {banned: false}), method: :put, remote: true, id: "image-#{list.id}" %>
+        <% else %>
+            <%= link_to 'Allow', home_path(list, home: {banned: true}), method: :put, remote: true, id: "image-#{list.id}" %>
+        <% end %>
+
+      </div>
+  <% end %>
+</div>
+<%= paginate @listing %>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MobileServices</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li class="active">
+          <%= link_to 'Home', root_path %>
+        </li>
+        <li>
+          <%= link_to 'Approved', root_path(search:{banned_eq: true}) %>
+        </li>
+        <li>
+          <%= link_to 'Public Images', public_images_path %>
+        </li>
+        <li>
+          <%= link_to_if current_user, 'Logout', destroy_user_session_path, method: :delete do  %>
+            <%= link_to 'Login', new_user_session_path %>
+          <% end %>
+        </li>
+
+        </ul>
+
+    </div>
+  </div>
+</div>
+<div class="container">
+
+  <%= yield %>
+</div>
+
+</body>
+</html>
